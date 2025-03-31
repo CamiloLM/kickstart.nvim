@@ -1,8 +1,3 @@
--- You can add your own plugins here or in other files in this directory!
---  I promise not to create any merge conflicts in this directory :)
---
--- See the kickstart.nvim README for more information
--- Format on save and linters
 return {
   'nvimtools/none-ls.nvim',
   dependencies = {
@@ -11,7 +6,7 @@ return {
   },
   config = function()
     local null_ls = require 'null-ls'
-    local formatting = null_ls.builtins.formatting -- to setup formatters
+    local formatting = null_ls.builtins.formatting   -- to setup formatters
     local diagnostics = null_ls.builtins.diagnostics -- to setup linters
 
     -- list of formatters & linters for mason to install
@@ -19,7 +14,7 @@ return {
       ensure_installed = {
         'checkmake',
         'prettier', -- ts/js formatter
-        'stylua', -- lua formatter
+        'stylua',   -- lua formatter
         'eslint_d', -- ts/js linter
         'shfmt',
         'ruff',
