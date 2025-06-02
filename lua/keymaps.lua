@@ -45,4 +45,24 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+vim.api.nvim_create_autocmd('TermOpen', {
+  group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
+  callback = function()
+    vim.opt.number = false
+    vim.opt.relativenumber = false
+  end,
+})
+
+-- local job_id = 0
+-- vim.keymap.set('n', '<leader>rp', function()
+--   vim.cmd.vnew()
+--   vim.cmd.term()
+--   vim.cmd.wincmd 'J'
+--   vim.api.nvim_win_set_height(0, 5)
+--
+--   job_id = vim.bo.channel
+--   local current_file = vim.fn.expand '%:p:h'
+--   vim.fn.chansend(job_id, { 'echo ' .. current_file .. '\r\n' })
+-- end, { desc = 'Runs Python code inside the terminal' })
+
 -- vim: ts=2 sts=2 sw=2 et
